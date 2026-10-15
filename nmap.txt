@@ -1,0 +1,4 @@
+nmap -sn 192.168.1.0/24	        Discover active hosts on an authorized subnet
+nmap -sn -PE 192.168.1.10	Use ICMP Echo for host discovery
+nmap -sn -PR 192.168.1.0/24	Use ARP discovery on a local network
+nmap -sn -n 192.168.1.0/24	Discover hosts without DNS resolution

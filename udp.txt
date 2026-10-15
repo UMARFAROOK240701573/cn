@@ -1,0 +1,25 @@
+server:
+
+import socket
+
+server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+server.bind(("127.0.0.1", 5000))
+
+print("Waiting for message...")
+data, addr = server.recvfrom(1024)
+print("Received:", data.decode())
+
+server.sendto(b"UDP message received", addr)
+server.close()
+
+client:
+
+import socket
+
+client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+client.sendto(b"Hello from UDP client", ("127.0.0.1", 5000))
+data, addr = client.recvfrom(1024)
+
+print(data.decode())
+client.close()
